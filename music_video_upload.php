@@ -1,15 +1,3 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 11:29 AM
- */
-session_start();
-
-?>
-<?php include ('dbcon.php') ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +9,7 @@ session_start();
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Lagosreporters9ja | Admin Login</title>
+    <title>Lagosreporters9ja |music / video upload</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/lagos%20reporter.PNG">
@@ -86,7 +74,7 @@ session_start();
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><a href="index.php">Home</a></li>
+                                <li class="active"><a href="admin.php">Home</a></li>
 
 
                             </ul>
@@ -99,55 +87,70 @@ session_start();
     </div>
 </header>
 
+
 <div align="center">
-<form action="#" method="post">
-    <h3>ADMINISTRATOR'S  LOGIN PAGE</h3>
+    <!--    <h6 style="color: blue">upload music / video</h6>-->
+    <!--    <form method="post" action="music_video_upload_con.php" enctype="multipart/form-data">-->
+    <!--        <table border="1" style="padding:10px">-->
+    <!--            <tr>-->
+    <!--                <Td>Upload  Video</td></tr>-->
+    <!---->
+    <!--            <Tr><td><input type="text" name="names" id="names"/></td></tr>-->
+    <!--            <tr><td>-->
+    <!---->
+    <!--            <Tr><td><input type="file" name="image" id="image"/></td></tr>-->
+    <!--            <tr><td>-->
+    <!--                    <input type="submit" name="submit" id="submit" value="Submit">-->
+    <!--<!                   <input type="submit" value="Display Video" name="disp"/>-->
+    <!--                </td></tr>-->
+    <!--        </table>-->
+    <!--    </form>-->
 
-    <div class="form-item">
-        <span><i class="fa fa-user" style="color: green"></i></span>
-        <input type="text" name="user" required="required" placeholder="Username" autofocus required></input>
-    </div>
-    <br>
-    <div class="form-item">
-        <span><i class="fa fa-key" style="color: green"></i></span>
-        <input type="password" name="pass" required="required" placeholder="Password" required></input>
-    </div>
-    <br>
-    <div class="button-panel">
-        <input type="submit" class="button" title="Login" name="login" value="Login"></input>
-        <input type="reset" class="button" title="reset" name="reset" value="reset"></input>
+    <?php
+    session_start();
+    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    if (mysqli_connect_errno()) {
+        echo "unable to connect to db" . mysqli_connect_error();
+    }
+    if (isset($_POST['save'])) {
+        $target_dir = "Uploaded_Files/";
+        $target_file = $target_dir . date("dmYhis") . basename($_FILES["file"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
-    </div>
-</form>
+//        if($imageFileType != "mp4" && $imageFileType != "avi" && $imageFileType != "mov" && $imageFileType != "3gp" && $imageFileType != "mpeg"){
+
+        if ($imageFileType != "mp4" || $imageFileType != "mp3" || $imageFileType != "jpg" || $imageFileType != "3gp" || $imageFileType != "png" || $imageFileType != "jpeg" || $imageFileType != "gif") {
+            if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
+                $files = date("dmYhis") . basename($_FILES["file"]["name"]);
+            } else {
+                echo "Error Uploading File (check file format / size)";
+                exit;
+            }
+        } else {
+            echo "File Not Supported";
+            exit;
+        }
+        $filename = $_POST['filename'];
+        $location = "Uploaded_Files/" . $files;
+        $sql = "INSERT INTO tblfiles (FileName, Location) VALUES ('{$filename}','{$location}')";
+        $result = mysqli_query($con, $sql);
+        if ($result) {
+            echo "File has been uploaded";
+        };
+    }
+    ?>
+
+    <h1>Upload and Download</h1>
+    <form class="form" method="post" action="" enctype="multipart/form-data">
+        <label class="label">Filename:</label>
+        <input type="text" name="filename"> <br/>
+        <label class="label">File:</label>
+        <input type="file" name="file" class="input"> <br/>
+        <button type="submit" name="save" class="btn"><i class="fa fa-upload fw-fa"></i> Upload</button>
+    </form>
 </div>
 <!--<div class="form-wrapper">-->
-
-
-
-<?php
-if (isset($_POST['login']))
-{
-    $username = mysqli_real_escape_string($con, $_POST['user']);
-    $password = mysqli_real_escape_string($con, $_POST['pass']);
-
-    $query 		= mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
-    $row		= mysqli_fetch_array($query);
-    $num_row 	= mysqli_num_rows($query);
-
-    if ($num_row > 0)
-    {
-//        $_SESSION['user_id']=$row['user_id'];
-        header('location:admin.php');
-//                            echo'tobi';
-    }
-    else
-    {
-        header('location:error.php');
-
-//        echo 'Invalid Username and Password Combination';
-    }
-}
-?>
 
 <BR><br><br><br><br>
 <!-- ##### Footer Add Area End ##### -->
@@ -170,7 +173,7 @@ if (isset($_POST['login']))
                         <!-- List -->
                         <ul class="list">
                             <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
-                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>
+                            <li><a href="#">www.Lagosreporters9ja.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -186,8 +189,11 @@ if (isset($_POST['login']))
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Copywrite -->
-                    <p align="center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
+                    <p align="center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design
+                        by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>

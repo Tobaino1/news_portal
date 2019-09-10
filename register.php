@@ -2,36 +2,14 @@
 /**
  * Created by PhpStorm.
  * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 11:29 AM
- *
+ * Date: 9/6/2019
+ * Time: 5:47 PM
  */
-session_start();
-
 ?>
-
 <?php
-$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
-if (mysqli_connect_errno()) {
-    echo "unable to connect to db" . mysqli_connect_error();
-}
-
-
-$query = $con->query("select * from users");
-
-//while ($row = mysqli_fetch_array($query)){
-$row = mysqli_fetch_array($query);
-$num_row = mysqli_num_rows($query);
-
-if ($num_row > 0) {
-    $username = $row['username'];
-} else {
-    echo 'Invalid username or password, please try again with the correct credentials ';
-//    header("location: error.php"); //error page for wrong longin
-}
-
+//Start session
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -43,7 +21,7 @@ if ($num_row > 0) {
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Lagosreporters9ja | Admin</title>
+    <title>Lagosreporters9ja | Keeping you updated</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/lagos%20reporter.PNG">
@@ -65,15 +43,17 @@ if ($num_row > 0) {
                     <div class="top-header-content d-flex align-items-center justify-content-between">
                         <!-- Logo -->
                         <div class="logo">
-                            <!--<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>-->
+                            <!--<a href="index.php"><img src="img/core-img/logo.png" alt=""></a>-->
                             <a href="index.php"><h2 style="color: white"> LAGOS REPORTERS 9ja </h2></a>
                         </div>
 
                         <!-- Login Search Area -->
                         <div class="login-search-area d-flex align-items-center">
+                            <!-- Login -->
                             <div class="login d-flex">
                                 <a href="logout.php">Logout</a>
-<!--                                <a href="#">Register</a>-->
+
+
                             </div>
                             <!-- Search Form -->
                             <!--<div class="search-form">-->
@@ -82,12 +62,13 @@ if ($num_row > 0) {
                             <!--<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>-->
                             <!--</form>-->
                             <!--</div>-->
-<!--                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <!-- Navbar Area -->
     <div class="newspaper-main-menu" id="stickyMenu">
@@ -117,12 +98,88 @@ if ($num_row > 0) {
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><a href="index.php">Home</a></li>
+                                <li class="active"><a href="admin.php">Home</a></li>
+                                <!--<li><a href="#">Pages</a>-->
+                                <!--<ul class="dropdown">-->
+                                <!--<li><a href="index.php">Home</a></li>-->
+                                <!--<li><a href="catagories-post.html">Catagories</a></li>-->
+                                <!--<li><a href="single-post.html">Single Articles</a></li>-->
+                                <!--<li><a href="about.html">About Us</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--<li><a href="#">Dropdown</a>-->
+                                <!--<ul class="dropdown">-->
+                                <!--<li><a href="index.php">Home</a></li>-->
+                                <!--<li><a href="catagories-post.html">Catagories</a></li>-->
+                                <!--<li><a href="single-post.html">Single Articles</a></li>-->
+                                <!--<li><a href="about.html">About Us</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--</ul>-->
+                                <!--</li>-->
+                                <!--</ul>-->
+                                <!--</li>-->
+                                <!--<li><a href="#">Mega Menu</a>-->
+                                <!--<div class="megamenu">-->
+                                <!--<ul class="single-mega cn-col-4">-->
+                                <!--<li class="title">Catagories</li>-->
+                                <!--<li><a href="index.php">Home</a></li>-->
+                                <!--<li><a href="catagories-post.html">Catagories</a></li>-->
+                                <!--<li><a href="single-post.html">Single Articles</a></li>-->
+                                <!--<li><a href="about.html">About Us</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--</ul>-->
+                                <!--<ul class="single-mega cn-col-4">-->
+                                <!--<li class="title">Catagories</li>-->
+                                <!--<li><a href="index.php">Home</a></li>-->
+                                <!--<li><a href="catagories-post.html">Catagories</a></li>-->
+                                <!--<li><a href="single-post.html">Single Articles</a></li>-->
+                                <!--<li><a href="about.html">About Us</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--</ul>-->
+                                <!--<ul class="single-mega cn-col-4">-->
+                                <!--<li class="title">Catagories</li>-->
+                                <!--<li><a href="index.php">Home</a></li>-->
+                                <!--<li><a href="catagories-post.html">Catagories</a></li>-->
+                                <!--<li><a href="single-post.html">Single Articles</a></li>-->
+                                <!--<li><a href="about.html">About Us</a></li>-->
+                                <!--<li><a href="contact.html">Contact</a></li>-->
+                                <!--</ul>-->
+                                <!--<div class="single-mega cn-col-4">-->
+                                <!--&lt;!&ndash; Single Featured Post &ndash;&gt;-->
+                                <!--<div class="single-blog-post small-featured-post d-flex">-->
+                                <!--<div class="post-thumb">-->
+                                <!--<a href="#"><img src="img/bg-img/23.jpg" alt=""></a>-->
+                                <!--</div>-->
+                                <!--<div class="post-data">-->
+                                <!--<a href="#" class="post-catagory">Travel</a>-->
+                                <!--<div class="post-meta">-->
+                                <!--<a href="#" class="post-title">-->
+                                <!--<h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
+                                <!--</a>-->
+                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
 
-                                <li><a href="register.php">Add Reporter</a></li>
-                                <li><a href="view_registered_rep.php">View Registered Reporters</a></li>
-                                <li><a href="#">reporters posts</a></li>
-                                <li><a href="music_video_upload.php">Upload Music / Video</a></li>
+                                <!--&lt;!&ndash; Single Featured Post &ndash;&gt;-->
+                                <!--<div class="single-blog-post small-featured-post d-flex">-->
+                                <!--<div class="post-thumb">-->
+                                <!--<a href="#"><img src="img/bg-img/24.jpg" alt=""></a>-->
+                                <!--</div>-->
+                                <!--<div class="post-data">-->
+                                <!--<a href="#" class="post-catagory">Politics</a>-->
+                                <!--<div class="post-meta">-->
+                                <!--<a href="#" class="post-title">-->
+                                <!--<h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>-->
+                                <!--</a>-->
+                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--</li>-->
+                                <!--                                <li><a href="#">Post a report</a></li>-->
+                                <!--                                <li><a href="contact.php">Contact</a></li>-->
 
                             </ul>
                         </div>
@@ -143,31 +200,28 @@ if ($num_row > 0) {
                 <!-- Breaking News Widget -->
                 <div class="breaking-news-area d-flex align-items-center">
                     <div class="news-title">
-                        <p>Administrator Page</p>
-                        <div align="center"><strong>You are welcome Administrator: </strong> <?php echo $username; ?>
-                        </div>
-
+                        <p>Registration Page</p>
                     </div>
-<!--                    <div id="breakingNewsTicker" class="ticker">-->
-<!--                        <ul>-->
-<!--                            <li><a href="#">keeping you updated with the breaking news.</a></li>-->
-<!--                            <li><a href="#">Avenue to get insight on relevant news.</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
+                    <!--                    <div id="breakingNewsTicker" class="ticker">-->
+                    <!--                        <ul>-->
+                    <!--                            <li><a href="#">keeping you updated with the breaking news.</a></li>-->
+                    <!--                            <li><a href="#">Avenue to get insight on relevant news.</a></li>-->
+                    <!--                        </ul>-->
+                    <!--                    </div>-->
                 </div>
 
                 <!-- Breaking News Widget -->
-<!--                <div class="breaking-news-area d-flex align-items-center mt-15">-->
-<!--                    <div class="news-title title2">-->
-<!--                        <p>International</p>-->
-<!--                    </div>-->
-<!--                    <div id="internationalTicker" class="ticker">-->
-<!--                        <ul>-->
-<!--                            <li><a href="#">keeping you updated with the international news</a></li>-->
-<!--                            <li><a href="#">giving it to you undiluted</a></li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
-<!--                </div>-->
+                <!--                <div class="breaking-news-area d-flex align-items-center mt-15">-->
+                <!--                    <div class="news-title title2">-->
+                <!--                        <p>International</p>-->
+                <!--                    </div>-->
+                <!--                    <div id="internationalTicker" class="ticker">-->
+                <!--                        <ul>-->
+                <!--                            <li><a href="#">keeping you updated with the international news</a></li>-->
+                <!--                            <li><a href="#">giving it to you undiluted</a></li>-->
+                <!--                        </ul>-->
+                <!--                    </div>-->
+                <!--                </div>-->
             </div>
 
             <!-- Hero Add -->
@@ -189,129 +243,54 @@ if ($num_row > 0) {
                 <div class="row">
 
                     <!-- Single Featured Post -->
-                    <div class="col-12 col-lg-7">
-                        <div class="single-blog-post featured-post">
-                            <div class="post-thumb">
-                                <!--<a href="#"><img src="img/bg-img/16.jpg" alt=""></a>-->
-                            </div>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">Latest News</a>
-                                <a href="#" class="post-title">
-                                    <!--<h6>Financial news: A new company is born today at the stock market</h6>-->
-                                </a>
-                                <div class="post-meta">
-                                        <h6 style="color: blue">Use the form to lodge latest news</h6>
-                                    <form enctype="multipart/form-data" action="constring.php" name="form" method="post">
 
-                                        Name of Reporter
-                                        <input type="text" id="reporter_name" name="reporter_name" size ="70" required>
-                                        <br><br>
-                                        Headline / Tile of the news
-                                        <input type="text" name="headline" id="headline" size="70" required>
-                                        <br><br>
-                                        Upload Images (optional)
-                                        <input type="file" name="image" id="image">
-                                        <br><br>
-                                        Content / Body
-                                        <textarea name="content" cols="70" rows="15"
-                                                  placeholder="copy and paste texts here / type texts here" required></textarea>
-
-                                        <br>
+                    <!--<a href="#"><img src="img/bg-img/16.jpg" alt=""></a>-->
+                </div>
+                <div class="post-data">
+                    <h5 style="color: #0056b3" align="center"> Register as a Reporter</h5>
+                    </a>
+                    <div align="center">
+                        <form enctype="multipart/form-data" action="register_con.php" name="form" method="post">
 
 
-                                        <input type="reset" name="reset" id="submit" value="reset" />
+                            <input type="text" id="names" name="names" size="30" required placeholder="Names">
+                            <br><br>
+                            <input type="text" id="username" name="username" size="30" required placeholder="Username">
+                            <br><br>
+                            <input type="password" id="password" name="password" size="30" required
+                                   placeholder="password">
+                            <br><br>
+                            <input type="text" name="email" id="email" size="30" placeholder="Email" required>
+                            <br><br>
+                            <input type="text" id="phone" name="phone" size="30" required placeholder="Phone">
+                            <br><br>
+                            <input type="file" id="image" name="image" size="30" required placeholder="Image">
 
-                                        <input type="submit" name="submit" id="submit" value="Submit" />
-
-                                        <br>
-                                    </form>
-                                         </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-5">
-                        <!-- Single Featured Post -->
-                        <div class="single-blog-post featured-post-2">
-                            <!--<div class="post-thumb">-->
-                            <!--<a href="#"><img src="img/bg-img/17.jpg" alt=""></a>-->
-                            <!--</div>-->
-                            <p></p>
-                            <div class="post-data">
-                                <a href="#" class="post-catagory">international news</a>
-                                <div class="post-meta">
-
-<!--                                    <a href="#" class="post-title">-->
-
-                                    </a>
-                                    <h6 style="color: blue">Use the form to lodge intl news</h6>
-
-                                    <form enctype="multipart/form-data" action="constring_int.php" name="form" method="post">
-
-                                        Name of Reporter
-                                        <input type="text" id="reporter_name" name="reporter_name" size ="70" required>
-                                        <br><br>
-                                        Headline / Tile of the news
-                                        <input type="text" name="headline" id="headline" size="70" required>
-                                        <br><br>
-                                        Upload Images (optional)
-                                        <input type="file" name="image" id="image">
-                                        <br><br>
-                                        Content / Body
-                                        <textarea name="content" cols="70" rows="15"
-                                                  placeholder="copy and paste texts here / type texts here" required></textarea>
-
-                                        <br>
-
-
-                                        <input type="reset" name="reset" id="submit" value="reset" />
-
-                                        <input type="submit" name="submit" id="submit" value="Submit" />
-
-                                        <br>
-                                    </form>
-
-                                    <br><br>
-                                    <!--                                                <h4 ALIGN="CENTER"> upload  (music & video) </h4>-->
-
-                                    <!--                                                <form enctype="multipart/form-data" action="upload_download/upload.php" name="form" method="post">-->
-                                    <!--                                                    Title-->
-                                    <!--                                                    <input type="text" name="title" id="title" size="50">-->
-                                    <!--                                                    <br><br>-->
-                                    <!--                                                    Select File-->
-                                    <!--                                                    <input type="file" name="image" id="image" />-->
-                                    <!--                                                    <br><br>-->
-                                    <!---->
-                                    <!--                                                    <input type="submit" name="submit" id="submit" value="Submit" />-->
-                                    <!--                                                </form>-->
-
-
-                                    <!-- Post Like & Post Comment -->
-                                    <div class="d-flex align-items-center">
-                                        <!--<a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                            <br><br>
+                            <input type="reset" name="reset" id="submit" value="Reset"/>
+                            <input type="submit" name="submit" id="submit" value="Submit"/>
+                            <br><br><br>
+                        </form>
 
 
                     </div>
                 </div>
             </div>
-
-
-            <!--ADVERTISEMENT SECTION-->
-
+        </div>
     </div>
 </div>
+</div>
 
+
+<!--ADVERTISEMENT SECTION-->
+
+</div>
+</div>
 
 
 </div>
 </div>
 </div>
-
 
 
 <!-- ##### Footer Add Area End ##### -->
@@ -334,7 +313,7 @@ if ($num_row > 0) {
                         <!-- List -->
                         <ul class="list">
                             <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
-                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>
+                            <li><a href="#">www.Lagosreporters9ja.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -419,8 +398,11 @@ if ($num_row > 0) {
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Copywrite -->
-                    <p align="center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
+                    <p align="center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design
+                        by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>

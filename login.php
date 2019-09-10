@@ -2,13 +2,12 @@
 /**
  * Created by PhpStorm.
  * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 11:29 AM
+ * Date: 9/6/2019
+ * Time: 6:37 PM
  */
-session_start();
-
 ?>
-<?php include ('dbcon.php') ?>
+
+<?php include('dbcon.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,7 @@ session_start();
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Lagosreporters9ja | Admin Login</title>
+    <title>Lagosreporters9ja | Reporter Login</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/lagos%20reporter.PNG">
@@ -100,51 +99,46 @@ session_start();
 </header>
 
 <div align="center">
-<form action="#" method="post">
-    <h3>ADMINISTRATOR'S  LOGIN PAGE</h3>
+    <form action="reporter_page.php" method="post">
+        <h3>REPORTER'S LOGIN PAGE</h3>
 
-    <div class="form-item">
-        <span><i class="fa fa-user" style="color: green"></i></span>
-        <input type="text" name="user" required="required" placeholder="Username" autofocus required></input>
-    </div>
-    <br>
-    <div class="form-item">
-        <span><i class="fa fa-key" style="color: green"></i></span>
-        <input type="password" name="pass" required="required" placeholder="Password" required></input>
-    </div>
-    <br>
-    <div class="button-panel">
-        <input type="submit" class="button" title="Login" name="login" value="Login"></input>
-        <input type="reset" class="button" title="reset" name="reset" value="reset"></input>
+        <div class="form-item">
+            <span><i class="fa fa-user" style="color: green"></i></span>
+            <input type="text" name="username" required="required" placeholder="Username" autofocus required></input>
+        </div>
+        <br>
+        <div class="form-item">
+            <span><i class="fa fa-key" style="color: green"></i></span>
+            <input type="password" name="password" required="required" placeholder="Password" required></input>
+        </div>
+        <br>
+        <div class="button-panel">
+            <input type="submit" class="button" title="Login" name="login" value="Login"></input>
+            <input type="reset" class="button" title="reset" name="reset" value="reset"></input>
 
-    </div>
-</form>
+        </div>
+    </form>
 </div>
 <!--<div class="form-wrapper">-->
 
 
-
 <?php
-if (isset($_POST['login']))
-{
+
+if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($con, $_POST['user']);
     $password = mysqli_real_escape_string($con, $_POST['pass']);
 
-    $query 		= mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
-    $row		= mysqli_fetch_array($query);
-    $num_row 	= mysqli_num_rows($query);
+    $query = mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
+    $row = mysqli_fetch_array($query);
+    $num_row = mysqli_num_rows($query);
 
-    if ($num_row > 0)
-    {
+    if ($num_row > 0) {
+        session_start();
 //        $_SESSION['user_id']=$row['user_id'];
         header('location:admin.php');
 //                            echo'tobi';
-    }
-    else
-    {
+    } else {
         header('location:error.php');
-
-//        echo 'Invalid Username and Password Combination';
     }
 }
 ?>
@@ -186,8 +180,11 @@ if (isset($_POST['login']))
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Copywrite -->
-                    <p align="center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
+                    <p align="center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design
+                        by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
@@ -210,3 +207,4 @@ if (isset($_POST['login']))
 </body>
 
 </html>
+

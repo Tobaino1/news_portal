@@ -2,23 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 1:33 PM
+ * Date: 9/6/2019
+ * Time: 6:27 PM
  */
+?>
+<?php
+//Start session
 session_start();
 ?>
 <?php
-$reporter_name=$_POST['reporter_name'];
-$headline=$_POST['headline'];
+$names = $_POST['names'];
+$username = $_POST['username'];
+$password = $_POST['password'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
 
-$uploads_dir = 'image_upload/';
-$image=$_FILES['image']['name'];
-$temp=$_FILES['image']['tmp_name'];
+$uploads_dir = 'reporter_img/';
+$image = $_FILES['image']['name'];
+$temp = $_FILES['image']['tmp_name'];
 
-$content=$_POST['content'];
 
-move_uploaded_file($temp,$uploads_dir.basename($image));
-
+move_uploaded_file($temp, $uploads_dir . basename($image));
 
 
 // Create connection
@@ -29,9 +33,8 @@ if ($conn === false) {
 }
 
 
-
-$sql = "INSERT INTO local_news(reporter_name, headline, image, content) VALUES 
-('$reporter_name', '$headline','$image','$content')";
+$sql = "INSERT INTO reporters(names, username, password, email, phone, image) VALUES 
+('$names', '$username','$password','$email','$phone','$image')";
 
 
 if (mysqli_query($conn, $sql)) {

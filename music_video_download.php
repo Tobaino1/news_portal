@@ -2,14 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 11:29 AM
+ * Date: 9/6/2019
+ * Time: 6:37 PM
  */
-session_start();
-
 ?>
-<?php include ('dbcon.php') ?>
-
+<?php
+$conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or die(mysqli_error());
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +20,7 @@ session_start();
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Lagosreporters9ja | Admin Login</title>
+    <title>Lagosreporters9ja | music and video </title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/lagos%20reporter.PNG">
@@ -98,56 +97,39 @@ session_start();
         </div>
     </div>
 </header>
-
+<h5 style="color: #b21f2d" align="center">download music / videos</h5>
 <div align="center">
-<form action="#" method="post">
-    <h3>ADMINISTRATOR'S  LOGIN PAGE</h3>
 
-    <div class="form-item">
-        <span><i class="fa fa-user" style="color: green"></i></span>
-        <input type="text" name="user" required="required" placeholder="Username" autofocus required></input>
-    </div>
-    <br>
-    <div class="form-item">
-        <span><i class="fa fa-key" style="color: green"></i></span>
-        <input type="password" name="pass" required="required" placeholder="Password" required></input>
-    </div>
-    <br>
-    <div class="button-panel">
-        <input type="submit" class="button" title="Login" name="login" value="Login"></input>
-        <input type="reset" class="button" title="reset" name="reset" value="reset"></input>
+    <?php
+    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    if (mysqli_connect_errno()) {
+        echo "unable to connect to db" . mysqli_connect_error();
+    }
+    ?>
+    <table style="color: red" width="50%" border="5">
+        <tr>
+            <th>FileName</th>
+            <th>Download</th>
+        </tr>
 
-    </div>
-</form>
+        <?php
+        $sql = "SELECT * FROM tblfiles";
+        $res = mysqli_query($con, $sql);
+        while ($row = mysqli_fetch_array($res)) {
+            echo '<tr>';
+            echo '<td>' . $row['FileName'] . '</td>';
+            echo '<td><a href="' . $row['Location'] . '">Download</a></td>';
+            echo '</tr>';
+        }
+        mysqli_close($con);
+        ?>
+
+    </table>
+
+
 </div>
 <!--<div class="form-wrapper">-->
 
-
-
-<?php
-if (isset($_POST['login']))
-{
-    $username = mysqli_real_escape_string($con, $_POST['user']);
-    $password = mysqli_real_escape_string($con, $_POST['pass']);
-
-    $query 		= mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
-    $row		= mysqli_fetch_array($query);
-    $num_row 	= mysqli_num_rows($query);
-
-    if ($num_row > 0)
-    {
-//        $_SESSION['user_id']=$row['user_id'];
-        header('location:admin.php');
-//                            echo'tobi';
-    }
-    else
-    {
-        header('location:error.php');
-
-//        echo 'Invalid Username and Password Combination';
-    }
-}
-?>
 
 <BR><br><br><br><br>
 <!-- ##### Footer Add Area End ##### -->
@@ -186,8 +168,11 @@ if (isset($_POST['login']))
             <div class="row h-100 align-items-center">
                 <div class="col-12">
                     <!-- Copywrite -->
-                    <p align="center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
+                    <p align="center">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design
+                        by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
@@ -210,3 +195,4 @@ if (isset($_POST['login']))
 </body>
 
 </html>
+

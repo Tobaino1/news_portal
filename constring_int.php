@@ -5,6 +5,7 @@
  * Date: 9/5/2019
  * Time: 1:33 PM
  */
+session_start();
 ?>
 <?php
 $reporter_name=$_POST['reporter_name'];

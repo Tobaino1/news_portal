@@ -1,9 +1,6 @@
-<?php //include('dbcon.php'); ?>
 <?php
-//include('session.php');
-?>
+session_start();
 
-<?php
 $con = mysqli_connect("localhost","root","","lagos_reporter");
 // Check connection
 if (mysqli_connect_errno())
@@ -54,8 +51,9 @@ if (mysqli_connect_errno())
                             <div class="login-search-area d-flex align-items-center">
                                 <!-- Login -->
                                 <div class="login d-flex">
-                                    <a href="#">Login</a>
-                                    <a href="#">Register</a>
+                                    <a href="login.php">Login</a>
+                                    <!--                                    <a href="register.php">Register</a>-->
+
                                 </div>
                                 <!-- Search Form -->
                                 <!--<div class="search-form">-->
@@ -179,8 +177,10 @@ if (mysqli_connect_errno())
                                             <!--</div>-->
                                         <!--</div>-->
                                     <!--</li>-->
-                                    <li><a href="#">Post a report</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="post_report.php">Post a report</a></li>
+                                    <li><a href="music_video_download.php">Music & Video downloads</a></li>
+                                    <li><a href="contact.php">Contact</a></li>
+
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -270,17 +270,67 @@ if (mysqli_connect_errno())
                                                 <td> <img src="image_upload/<?php echo $image?>" width="80" height="60"></td><br>
                                                 <td>&nbsp;Report by:          <?php echo $reporter_name ;?> </td><br>
                                                 <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
-                                                    <td><?php echo $content ;?> </td><br><Br></div>
-                                            </tr>
+                                                    <td><?php echo $content; ?> </td>
+                                                    <br>
+
+                                                    <!--                                               //sharing on social media platforms-->
+                                                    <td>
+                                                        <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                           share/whatsapp/share">
+                                                        <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                        Share via Whatsapp web
+                                    </a></td><br>
+
+                                    <td>
+                                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                            <span><i class="fa fa-twitter" style="color: blue"></i></span> Share via
+                                            Twitter</a>
+                                    </td>
+                                    <br>
+
+                                    <td>
+
+                                        <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                            <span><i class="fa fa-facebook" style="color: blue"></i></span> Share via
+                                            Facebook</a>
+                                        </a>        </td>
+                                    <br><Br>
+                                </div>
+                                </tr>
                                         <?php }?>
 
                                     </a>
                                     <div class="post-meta">
                                         <!-- Post Like & Post Comment -->
-                                        <div class="d-flex align-items-center">
+                                        <h6 style="color: blue"><strong>DISCLAIMER: Comments expressed here do not
+                                                reflect the opinions of Lagosreproters9ja.com</strong></h6>
+                                        <br><br><a href="#" class="post-comment"><img src="img/core-img/chat.png"
+                                                                                      alt=""> <span
+                                                    style="color: #0056b3">comment on any of the news</span></a>
+                                        <br>
+                                        <!--                                        <div class="d-flex align-items-center">-->
                                             <!--<a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>-->
+                                        <div>
+                                            <form enctype="multipart/form-data" action="comment.php" name="form"
+                                                  method="post">
 
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>comment on any of the news</span></a>
+
+                                                <input type="text" id="visitor" name="visitor" size="30" required
+                                                       placeholder="Name">
+                                                <br>
+
+                                                <input type="text" name="email" id="email" size="30"
+                                                       placeholder="Email (optional)">
+                                                <br>
+
+                                                <textarea name="comment" cols="30" rows="5" size="500"
+                                                          placeholder="Comments here" required></textarea>
+                                                <br>
+                                                <input type="reset" name="reset" id="submit" value="reset"/>
+                                                <input type="submit" name="submit" id="submit" value="Submit"/>
+                                                <br>
+                                            </form>
+
                                         </div>
                                     </div>
                                 </div>
@@ -315,13 +365,64 @@ if (mysqli_connect_errno())
                                                     <td> <img src="image_upload/<?php echo $image?>" width="80" height="60"></td><br>
                                                     <td>&nbsp;Report by:          <?php echo $reporter_name ;?> </td><br>
                                                     <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
-                                                    <td><?php echo $content ;?> </td><br><Br></div>
+                                                       <td><?php echo $content; ?> </td>
+                                                       <br><Br>
+
+                                                       <td>
+                                                           <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                              share/whatsapp/share">
+                                                           <span><i class="fa fa-whatsapp"
+                                                                    style="color: green"></i></span> Share via Whatsapp
+                                                           web
+                                        </a></td><br>
+
+                                        <td>
+                                            <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                <span><i class="fa fa-twitter" style="color: blue"></i></span> Share via
+                                                Twitter</a>
+                                        </td>
+                                        <br>
+
+                                        <td>
+
+                                            <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                <span><i class="fa fa-facebook" style="color: blue"></i></span> Share
+                                                via Facebook</a>
+                                            </a>        </td>
+                                        <br><Br>
+                                    </div>
                                                 </tr>
-                                            <?php }?>                                        </a>
-                                        <!-- Post Like & Post Comment -->
-                                        <div class="d-flex align-items-center">
+                                    <?php } ?>
+                                    <!-- see Comments -->
+                                    <br>
+                                    <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span
+                                                style="color: #0056b3">Visitors Comments</span></a>
+                                    <br>
+                                    <div class="d-flex align-items-center">
                                             <!--<a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>-->
-                                            <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span>comment on any of the int'l news</span></a>
+
+
+                                        <?php
+                                        $query = $con->query("select * from comments order by id desc ");
+                                        while ($row = mysqli_fetch_array($query)) {
+
+                                        $visitor = $row['visitor'];
+                                        $email = $row['email'];
+                                        $comment = $row['comment'];
+
+                                        ?>
+                                        <tr>
+                                            <td>&nbsp;Comment by: <?php echo $visitor; ?> </td>
+                                            <br>
+                                            <td>&nbsp;Email: <?php echo $email; ?> </td>
+                                            <br>
+                                            <td>&nbsp;Comment: <?php echo $comment; ?> </td>
+                                            <br><br>
+
+
+                                            <?php } ?>
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -341,7 +442,7 @@ if (mysqli_connect_errno())
                             <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
                         </div>
                         <div class="post-data">
-                            <a href="contact.html" class="post-catagory"> Advertise your product</a>
+                            <a href="contact.php" class="post-catagory"> Advertise your product</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
                                     <!--<h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
