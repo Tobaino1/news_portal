@@ -2,6 +2,10 @@
 session_start();
 
 $con = mysqli_connect("localhost","root","","lagos_reporter");
+
+//$con = mysqli_connect("localhost","unlimit7_tobaino","pass?1><m","unlimit7_lagos_reporter");
+
+
 // Check connection
 if (mysqli_connect_errno())
 {
@@ -78,7 +82,9 @@ if (mysqli_connect_errno())
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                            <!--                            <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>-->
+                            <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
+
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -177,6 +183,7 @@ if (mysqli_connect_errno())
                                             <!--</div>-->
                                         <!--</div>-->
                                     <!--</li>-->
+                                    <li><a href="about.html">About Us</a></li>
                                     <li><a href="post_report.php">Post a report</a></li>
                                     <li><a href="music_video_download.php">Music & Video downloads</a></li>
                                     <li><a href="contact.php">Contact</a></li>
@@ -185,6 +192,9 @@ if (mysqli_connect_errno())
                             </div>
                             <!-- Nav End -->
                         </div>
+                        <a href="https://api.whatsapp.com/send?phone=+2348021716121&text=Save%20our%20number%20to%20your%20contacts%20and%20send%20this%20message%20to%20start%20Receiving%20News%20from%20Lagosreporters%209ja">
+                            <span style="color: powderblue"><i class="fa fa-whatsapp" style="color: dodgerblue"></i> Receive News on WhatsApp</span>
+                        </a>
                     </nav>
                 </div>
             </div>
@@ -200,7 +210,7 @@ if (mysqli_connect_errno())
                     <!-- Breaking News Widget -->
                     <div class="breaking-news-area d-flex align-items-center">
                         <div class="news-title">
-                            <p>Breaking News</p>
+                            <p>LATEST NEWS</p>
                         </div>
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
@@ -213,11 +223,11 @@ if (mysqli_connect_errno())
                     <!-- Breaking News Widget -->
                     <div class="breaking-news-area d-flex align-items-center mt-15">
                         <div class="news-title title2">
-                            <p>International</p>
+                            <p>LR COMMUNITY WATCH</p>
                         </div>
                         <div id="internationalTicker" class="ticker">
                             <ul>
-                                <li><a href="#">keeping you updated with the international news</a></li>
+                                <li><a href="#">making it balanced and accurate</a></li>
                                 <li><a href="#">giving it to you undiluted</a></li>
                             </ul>
                         </div>
@@ -227,7 +237,13 @@ if (mysqli_connect_errno())
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="img/core-img/lagos%20reporter.PNG" width="230" height="116" alt=""></a>
+                        <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
+                        <a href="#"><img src="image_upload/keade.jpg" width="150" height="5" alt=""></a>
+                        <p>Patronize Us for all sort of wears (Unisex), visit us <a
+                                    href="facebook.com/keadecollections"> <strong style="color: blue">Keade
+                                    Collections</strong></a></p>
+
+
                     </div>
                 </div>
             </div>
@@ -253,7 +269,7 @@ if (mysqli_connect_errno())
                                     <a href="#" class="post-title">
                                         <!--<h6>Financial news: A new company is born today at the stock market</h6>-->
                                         <?php
-                                        $query=$con->query("select * from local_news order by id desc ");
+                                        $query = $con->query("select * from local_news order by id desc limit 10");
                                         while ($row = mysqli_fetch_array($query)) {
 
 //                                            $id = $row['id'];
@@ -261,19 +277,33 @@ if (mysqli_connect_errno())
                                             $reporter_name = $row['reporter_name'];
                                             $headline = $row['headline'];
                                             $content = $row['content'];
+                                        $submit = $row['submit']
+                                        //                                        $image=$row['image'];
 
                                         ?>
                                             <tr>
                                                 <div align="justify">
 
                                                 <!--                                                <td>  --><?php //echo $id ;?><!-- </td>-->
-                                                <td> <img src="image_upload/<?php echo $image?>" width="80" height="60"></td><br>
-                                                <td>&nbsp;Report by:          <?php echo $reporter_name ;?> </td><br>
+                                                    <td><img src="image_upload/<?php echo $image ?>" width="230"
+                                                             height="180"></td>
+                                                    <br>
+                                                    <td>Time:<?php echo $submit; ?> </td>
+                                                    <br>
+                                                    <td>&nbsp;Report by: <?php echo $reporter_name; ?> </td>
+                                                    <br>
                                                 <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
                                                     <td><?php echo $content; ?> </td>
-                                                    <br>
+                                                    <td><?php echo $submit; ?> </td>
 
-                                                    <!--                                               //sharing on social media platforms-->
+                                                    <br><br>
+
+                                                    <!--                                                    <p><a href="images1/-->
+                                                    <?php //echo $image?><!--"> Click for more pictures...</a> </p>-->
+                                                    <!--                                                    <p><a href="#"> Click for more pictures...</a> </p>-->
+
+
+                                                    <!--                                                                                                 //sharing on social media platforms-->
                                                     <td>
                                                         <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
                                                            share/whatsapp/share">
@@ -299,40 +329,7 @@ if (mysqli_connect_errno())
                                 </tr>
                                         <?php }?>
 
-                                    </a>
-                                    <div class="post-meta">
-                                        <!-- Post Like & Post Comment -->
-                                        <h6 style="color: blue"><strong>DISCLAIMER: Comments expressed here do not
-                                                reflect the opinions of Lagosreproters9ja.com</strong></h6>
-                                        <br><br><a href="#" class="post-comment"><img src="img/core-img/chat.png"
-                                                                                      alt=""> <span
-                                                    style="color: #0056b3">comment on any of the news</span></a>
-                                        <br>
-                                        <!--                                        <div class="d-flex align-items-center">-->
-                                            <!--<a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>-->
-                                        <div>
-                                            <form enctype="multipart/form-data" action="comment.php" name="form"
-                                                  method="post">
 
-
-                                                <input type="text" id="visitor" name="visitor" size="30" required
-                                                       placeholder="Name">
-                                                <br>
-
-                                                <input type="text" name="email" id="email" size="30"
-                                                       placeholder="Email (optional)">
-                                                <br>
-
-                                                <textarea name="comment" cols="30" rows="5" size="500"
-                                                          placeholder="Comments here" required></textarea>
-                                                <br>
-                                                <input type="reset" name="reset" id="submit" value="reset"/>
-                                                <input type="submit" name="submit" id="submit" value="Submit"/>
-                                                <br>
-                                            </form>
-
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -345,11 +342,11 @@ if (mysqli_connect_errno())
                                 <!--</div>-->
                                 <p></p>
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">international news</a>
+                                    <a href="#" class="post-catagory">LR COMMUNITY WATCH</a>
                                     <div class="post-meta">
                                         <a href="#" class="post-title">
                                             <?php
-                                            $query=$con->query("select * from int_news order by id desc ");
+                                            $query = $con->query("select * from int_news order by id desc limit 10");
                                             while ($row = mysqli_fetch_array($query)) {
 
 //                                            $id = $row['id'];
@@ -357,16 +354,26 @@ if (mysqli_connect_errno())
                                                 $reporter_name = $row['reporter_name'];
                                                 $headline = $row['headline'];
                                                 $content = $row['content'];
+                                            $submit = $row['submit']
+
+                                            //                                            $image1=$row['image1'];
+                                            //                                            $image2=$row['image2'];
 
                                                 ?>
                                                 <tr>
                                                     <!--                                                <td>  --><?php //echo $id ;?><!-- </td>-->
                                                    <div align="justify">
-                                                    <td> <img src="image_upload/<?php echo $image?>" width="80" height="60"></td><br>
-                                                    <td>&nbsp;Report by:          <?php echo $reporter_name ;?> </td><br>
+                                                       <td><img src="image_upload/<?php echo $image ?>" width="230"
+                                                                height="180"></td>
+                                                       <br>
+                                                       <td>Time:<?php echo $submit; ?> </td>
+                                                       <br>
+                                                       <td>&nbsp;Report by: <?php echo $reporter_name; ?> </td>
+                                                       <br>
                                                     <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
                                                        <td><?php echo $content; ?> </td>
-                                                       <br><Br>
+                                                       <br><br>
+                                                       <p><a href="#"> Click for more pictures...</a></p>
 
                                                        <td>
                                                            <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
@@ -395,6 +402,43 @@ if (mysqli_connect_errno())
                                     <?php } ?>
                                     <!-- see Comments -->
                                     <br>
+
+
+                                    <div class="post-meta">
+                                        <!-- Post Like & Post Comment -->
+                                        <h6 style="color: blue"><strong>DISCLAIMER: Comments expressed here do not
+                                                reflect the opinions of Lagosreproters9ja.com</strong></h6>
+                                        <br><br><a href="#" class="post-comment"><img src="img/core-img/chat.png"
+                                                                                      alt=""> <span
+                                                    style="color: #0056b3">comment on any of the news</span></a>
+                                        <br>
+                                        <!--                                        <div class="d-flex align-items-center">-->
+                                        <!--<a href="#" class="post-like"><img src="img/core-img/like.png" alt=""> <span>392</span></a>-->
+                                        <div>
+                                            <form enctype="multipart/form-data" action="comment.php" name="form"
+                                                  method="post">
+
+                                                <br>
+                                                <input type="text" id="visitor" name="visitor" size="30" required
+                                                       placeholder="Name">
+                                                <br>
+
+                                                <input type="text" name="email" id="email" size="30"
+                                                       placeholder="Email (optional)">
+                                                <br>
+
+                                                <textarea name="comment" cols="30" rows="5" size="500"
+                                                          placeholder="Comments here" required></textarea>
+                                                <br>
+                                                <input type="reset" name="reset" id="submit" value="reset"/>
+                                                <input type="submit" name="submit" id="submit" value="Submit"/>
+                                                <br>
+                                            </form>
+
+                                        </div>
+                                    </div>
+
+                                    <br>
                                     <a href="#" class="post-comment"><img src="img/core-img/chat.png" alt=""> <span
                                                 style="color: #0056b3">Visitors Comments</span></a>
                                     <br>
@@ -403,7 +447,7 @@ if (mysqli_connect_errno())
 
 
                                         <?php
-                                        $query = $con->query("select * from comments order by id desc ");
+                                        $query = $con->query("select * from comments order by id desc limit 15");
                                         while ($row = mysqli_fetch_array($query)) {
 
                                         $visitor = $row['visitor'];
@@ -435,44 +479,54 @@ if (mysqli_connect_errno())
 
 
                 <!--ADVERTISEMENT SECTION-->
-                <div class="col-12 col-md-6 col-lg-4">
+
+        <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
+            <a href="contact.php" class="post-catagory"><strong style="color: #b21f2d">Advertise With Us</strong> </a>
+
+            <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>
+                            <!--                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>-->
                         </div>
                         <div class="post-data">
-                            <a href="contact.php" class="post-catagory"> Advertise your product</a>
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <!--<h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
+                                    <!--                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
                                 </a>
-                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
+                                <!--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
                             </div>
                         </div>
                     </div>
 
                     <!-- Single Featured Post -->
+            <!--                    advert column 1-->
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
-                            <!--<a href="#"><img src="img/bg-img/20.jpg" alt=""></a>-->
+                            <!--                            <a href="#"><img src="img/bg-img/20.jpg" alt=""></a>-->
                         </div>
+
+                        <!--                    advert column 2-->
+
                         <div class="post-data">
                             <!--<a href="#" class="post-catagory">Politics</a>-->
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <!--<h6>Sed a elit euismod augue semper congue sit amet ac sapien.</h6>-->
+                                    <!--                                    <h6>Sed a elit euismod augue semper congue sit amet ac sapien.</h6>-->
                                 </a>
-                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
+                                <!--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
                             </div>
                         </div>
                     </div>
 
                     <!-- Single Featured Post -->
+            <!--                    advert column 3-->
+
                     <div class="single-blog-post small-featured-post d-flex">
                         <div class="post-thumb">
                             <!--<a href="#"><img src="img/bg-img/21.jpg" alt=""></a>-->
                         </div>
+
+                        <!--                    advert column 4-->
                         <div class="post-data">
                             <!--<a href="#" class="post-catagory">Health</a>-->
                             <div class="post-meta">
@@ -485,10 +539,13 @@ if (mysqli_connect_errno())
                     </div>
 
                     <!-- Single Featured Post -->
-                    <div class="single-blog-post small-featured-post d-flex">
+            <!--                    advert column 5-->
+            <div class="single-blog-post small-featured-post d-0 flex">
                         <div class="post-thumb">
                             <!--<a href="#"><img src="img/bg-img/22.jpg" alt=""></a>-->
                         </div>
+
+                <!--                    advert column 6-->
                         <div class="post-data">
                             <!--<a href="#" class="post-catagory">Finance</a>-->
                             <div class="post-meta">
@@ -758,6 +815,8 @@ if (mysqli_connect_errno())
                             <ul class="list">
                                 <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
                                 <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>
+                                <li><a href="admin_login.php">Admin</a></li>
+
                             </ul>
                         </div>
                     </div>
@@ -823,17 +882,34 @@ if (mysqli_connect_errno())
                             <!--<h4 class="widget-title">+More</h4>-->
                             <!-- List -->
                             <ul class="list">
-                                <li><a href="admin_login.php">Admin</a></li>
-                                <!--<li><a href="#">Fashion</a></li>-->
-                                <!--<li><a href="#">Design</a></li>-->
-                                <!--<li><a href="#">Architecture</a></li>-->
+                                <p align="center"><a href="contact.php">Contact Us link</a></p>
+
                                 <!--<li><a href="#">Arts</a></li>-->
                                 <!--<li><a href="#">Autos</a></li>-->
                                 <!--<li><a href="#">Luxury</a></li>-->
+                                <!--                                <P align="center"> Follow Us On</P>-->
+                                <strong style="color: white">Follow Us On</strong>
+                                <p align="left"><a href="https://www.facebook.com/followLRinfo/">
+                                        <span><i class="fa fa-facebook" style="color: white"></i></span></a>
+
+                                    <a href="http://Instagram.com/Lagosreporters">
+                                        <span><i class="fa fa-instagram" style="color: white"></i></span></a>
+
+                                    <a href="https://mobile.twitter.com/followlrinfo">
+                                        <span><i class="fa fa-twitter" style="color: white"></i></span></a>
+
+                                    <a href="https://m.youtube.com/channel/UC8p-bf4Dw0UAY6lVxtMw5Ow">
+                                        <span><i class="fa fa-youtube" style="color: white"></i></span></a>
+                                </p>
+
                             </ul>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
         </div>
 
@@ -844,7 +920,9 @@ if (mysqli_connect_errno())
                     <div class="col-12">
                         <!-- Copywrite -->
                         <p align="center"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Lagos Reporter 9ja <i class="fa fa-heart-o" aria-hidden="true"></i> design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                            All rights reserved | Lagos Reporters 9ja <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            design by <a href="https://sparklegrid.tech" target="_blank">Sparklegrid (Tobaino)</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                     </div>
                 </div>

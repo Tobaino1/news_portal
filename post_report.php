@@ -63,7 +63,7 @@
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -95,7 +95,7 @@
     </div>
 </header>
 
-<div align="center">
+<div align="left">
     <br><br>
     <h6 style="color: blue">For you to report news, you must register on the platform by using the contact link on the
         menu bar
@@ -136,6 +136,9 @@
 
 
             </div>
+
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 

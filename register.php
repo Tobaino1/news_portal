@@ -7,6 +7,11 @@
  */
 ?>
 <?php
+if (!isset($_SESSION['id'])) {
+    echo 'Sorry please login before you can perform this operation';
+}
+?>
+<?php
 //Start session
 session_start();
 ?>
@@ -79,7 +84,7 @@ session_start();
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -389,6 +394,9 @@ session_start();
                 <!--</div>-->
                 <!--</div>-->
             </div>
+
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 

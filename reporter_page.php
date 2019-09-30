@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Oyekan Oluwatobi
- * Date: 9/5/2019
- * Time: 11:29 AM
- */
+if (!isset($_SESSION['id'])) {
+    echo 'Sorry please login before you can perform this operation';
+}
 ?>
 <?php
 include('dbcon.php');
@@ -76,7 +73,7 @@ if ($num_row > 0) {
                         <!-- Logo -->
                         <div class="logo">
                             <!--<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>-->
-                            <a href="index.php"><h2 style="color: white"> LAGOS REPORTERS 9ja </h2></a>
+                            <a href="#"><h2 style="color: white"> LAGOS REPORTERS 9ja </h2></a>
                         </div>
 
                         <!-- Login Search Area -->
@@ -108,7 +105,7 @@ if ($num_row > 0) {
 
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                            <a href="#"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                         </div>
 
                         <!-- Navbar Toggler -->
@@ -215,7 +212,7 @@ if ($num_row > 0) {
                                     <h6 style="color: blue">Use the form to lodge latest news</h6>
 
 
-                                    <form enctype="multipart/form-data" action="constring.php" name="form"
+                                    <form enctype="multipart/form-data" action="constringreploc.php" name="form"
                                           method="post">
 
                                         Name of Reporter
@@ -263,7 +260,7 @@ if ($num_row > 0) {
                                 </a>
                                 <h6 style="color: blue">Use the form to lodge intl news</h6>
 
-                                <form enctype="multipart/form-data" action="constring_int.php" name="form"
+                                <form enctype="multipart/form-data" action="constringreplrnews.php" name="form"
                                       method="post">
 
                                     Name of Reporter
@@ -329,12 +326,12 @@ if ($num_row > 0) {
                     <div class="footer-widget-area mt-80">
                         <!-- Footer Logo -->
                         <div class="footer-logo">
-                            <a href="index.php"><h2 style="color: white">Lagos Reporters 9ja</h2></a>
+                            <a href="#"><h2 style="color: white">Lagos Reporters 9ja</h2></a>
                         </div>
                         <!-- List -->
                         <ul class="list">
-                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
-                            <li><a href="#">www.Lagosreporters9ja.com</a></li>
+                            <!--                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>-->
+                            <!--                            <li><a href="#">www.Lagosreporters9ja.com</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -410,6 +407,9 @@ if ($num_row > 0) {
                 <!--</div>-->
                 <!--</div>-->
             </div>
+
+            <!--            <p align="center"><a href="contact.php">Contact Us</a> </p>-->
+
         </div>
     </div>
 
@@ -446,4 +446,3 @@ if ($num_row > 0) {
 </body>
 
 </html>
-

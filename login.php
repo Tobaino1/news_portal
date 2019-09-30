@@ -66,7 +66,7 @@
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -123,25 +123,25 @@
 
 
 <?php
-
-if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($con, $_POST['user']);
-    $password = mysqli_real_escape_string($con, $_POST['pass']);
-
-    $query = mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
-    $row = mysqli_fetch_array($query);
-    $num_row = mysqli_num_rows($query);
-
-    if ($num_row > 0) {
-        session_start();
-//        $_SESSION['user_id']=$row['user_id'];
-        header('location:admin.php');
-//                            echo'tobi';
-    } else {
-        header('location:error.php');
-    }
-}
-?>
+//
+//if (isset($_POST['login'])) {
+//    $username = mysqli_real_escape_string($con, $_POST['user']);
+//    $password = mysqli_real_escape_string($con, $_POST['pass']);
+//
+//    $query = mysqli_query($con, "SELECT * FROM users WHERE  password='$password' and username='$username'");
+//    $row = mysqli_fetch_array($query);
+//    $num_row = mysqli_num_rows($query);
+//
+//    if ($num_row > 0) {
+//        session_start();
+////        $_SESSION['user_id']=$row['user_id'];
+//        header('location:reporter_Page.php');
+////                            echo'tobi';
+//    } else {
+//        header('location:error.php');
+//    }
+//}
+//?>
 
 <BR><br><br><br><br>
 <!-- ##### Footer Add Area End ##### -->

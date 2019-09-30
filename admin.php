@@ -11,7 +11,9 @@ session_start();
 ?>
 
 <?php
-$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+//$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+$con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
 if (mysqli_connect_errno()) {
     echo "unable to connect to db" . mysqli_connect_error();
 }
@@ -66,7 +68,7 @@ if ($num_row > 0) {
                         <!-- Logo -->
                         <div class="logo">
                             <!--<a href="index.html"><img src="img/core-img/logo.png" alt=""></a>-->
-                            <a href="index.php"><h2 style="color: white"> LAGOS REPORTERS 9ja </h2></a>
+                            <a href="#"><h2 style="color: white"> LAGOS REPORTERS 9ja </h2></a>
                         </div>
 
                         <!-- Login Search Area -->
@@ -98,7 +100,9 @@ if ($num_row > 0) {
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <!--                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>-->
+                        <a href="#"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
+
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -117,7 +121,7 @@ if ($num_row > 0) {
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li class="active"><a href="index.php">Home</a></li>
+                                <li class="active"><a href="admin.php">Home</a></li>
 
                                 <li><a href="register.php">Add Reporter</a></li>
                                 <li><a href="view_registered_rep.php">View Registered Reporters</a></li>
@@ -211,12 +215,23 @@ if ($num_row > 0) {
                                         <br><br>
                                         Upload Images (optional)
                                         <input type="file" name="image" id="image">
-                                        <br><br>
-                                        Content / Body
-                                        <textarea name="content" cols="70" rows="15"
-                                                  placeholder="copy and paste texts here / type texts here" required></textarea>
+                                        <br><br>Content / Body <br>
 
-                                        <br>
+                                        <textarea name="content" cols="40" rows="15" align="justify"
+                                                  placeholder="copy and paste texts here / type texts here"
+                                                  required></textarea>
+
+                                        <!--                                        <br><br>-->
+                                        <!--                                        Upload Other Images 1 (optional)-->
+                                        <!--                                        <input type="file" name="image1" id="image1">-->
+
+                                        <!---->
+                                        <!--                                        <br><br>-->
+                                        <!---->
+                                        <!--                                        Upload Other Images 2 (optional)-->
+                                        <!--                                        <input type="file" name="image2" id="image2">-->
+
+                                        <br> <br>
 
 
                                         <input type="reset" name="reset" id="submit" value="reset" />
@@ -239,7 +254,7 @@ if ($num_row > 0) {
                             <!--</div>-->
                             <p></p>
                             <div class="post-data">
-                                <a href="#" class="post-catagory">international news</a>
+                                <a href="#" class="post-catagory">LR COMMUNITY WATCH</a>
                                 <div class="post-meta">
 
 <!--                                    <a href="#" class="post-title">-->
@@ -259,11 +274,20 @@ if ($num_row > 0) {
                                         <input type="file" name="image" id="image">
                                         <br><br>
                                         Content / Body
-                                        <textarea name="content" cols="70" rows="15"
+                                        <textarea name="content" cols="40" rows="15" align="justify"
                                                   placeholder="copy and paste texts here / type texts here" required></textarea>
+                                        <!---->
+                                        <!--                                        <br><br>-->
+                                        <!--                                        Upload Other Images 1 (optional)-->
+                                        <!--                                        <input type="file" name="image1" id="image1">-->
+                                        <!---->
+                                        <!---->
+                                        <!--                                        <br><br>-->
+                                        <!---->
+                                        <!--                                        Upload Other Images 2 (optional)-->
+                                        <!--                                        <input type="file" name="image2" id="image2">-->
 
-                                        <br>
-
+                                        <br> <br>
 
                                         <input type="reset" name="reset" id="submit" value="reset" />
 
@@ -333,8 +357,8 @@ if ($num_row > 0) {
                         </div>
                         <!-- List -->
                         <ul class="list">
-                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
-                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>
+                            <!--                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>-->
+                            <!--                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>-->
                         </ul>
                     </div>
                 </div>
@@ -410,6 +434,8 @@ if ($num_row > 0) {
                 <!--</div>-->
                 <!--</div>-->
             </div>
+            <!--            <p align="center"><a href="contact.php">Contact Us</a> </p>-->
+
         </div>
     </div>
 
@@ -424,6 +450,7 @@ if ($num_row > 0) {
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
+
         </div>
     </div>
 </footer>

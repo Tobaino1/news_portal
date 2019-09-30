@@ -55,7 +55,7 @@
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -108,7 +108,10 @@
 
     <?php
     session_start();
-    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    //    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+
+    $con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
     if (mysqli_connect_errno()) {
         echo "unable to connect to db" . mysqli_connect_error();
     }
@@ -133,7 +136,15 @@
         }
         $filename = $_POST['filename'];
         $location = "Uploaded_Files/" . $files;
-        $sql = "INSERT INTO tblfiles (FileName, Location) VALUES ('{$filename}','{$location}')";
+        $description = $_POST ['description'];
+
+        $uploads_dir = 'Uploaded_Files/';
+        $image = $_FILES['image']['name'];
+        $temp = $_FILES['image']['tmp_name'];
+
+        move_uploaded_file($temp, $uploads_dir . basename($image));
+
+        $sql = "INSERT INTO tblfiles (FileName, Location, description, image) VALUES ('{$filename}','{$location}','{$description}','{$image}')";
         $result = mysqli_query($con, $sql);
         if ($result) {
             echo "File has been uploaded";
@@ -143,10 +154,14 @@
 
     <h1>Upload and Download</h1>
     <form class="form" method="post" action="" enctype="multipart/form-data">
-        <label class="label">Filename:</label>
-        <input type="text" name="filename"> <br/>
-        <label class="label">File:</label>
-        <input type="file" name="file" class="input"> <br/>
+        <label class="label">Filename / Artiste Name:</label> <input type="text" name="filename"> <br/>
+
+        <label class="label">Upload File (song/video):</label><input type="file" name="file" class="input"> <br/>
+
+        <label class="label">Description:</label> <input type="text" name="description" size="150"> <br/>
+
+        <label class="label">Image (picture):</label> <input type="file" name="image"> <br/>
+
         <button type="submit" name="save" class="btn"><i class="fa fa-upload fw-fa"></i> Upload</button>
     </form>
 </div>
@@ -180,6 +195,8 @@
 
 
             </div>
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 

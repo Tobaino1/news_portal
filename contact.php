@@ -65,7 +65,7 @@
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -212,7 +212,7 @@
             <!-- Hero Add -->
             <div class="col-12 col-lg-4">
                 <div class="hero-add">
-                    <a href="#"><img src="img/core-img/lagos%20reporter.PNG" width="230" height="116" alt=""></a>
+                    <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
                 </div>
             </div>
         </div>
@@ -259,7 +259,7 @@
                                 <td>Name :</td>
                                 <div class="col-12 col-lg-6">
                                     <td><input name="first_name" type="text" class="form-control" id="first_name"
-                                               size="45"></td>
+                                               size="45" required style="color: #b21f2d"></td>
                                 </div>
                             </tr>
                             <td>&nbsp;</td>
@@ -267,7 +267,7 @@
                                 <td>E-mail :</td>
                                 <div class="col-12 col-lg-6">
                                     <td><input name="email_address" class="form-control" type="text" id="email_address"
-                                               size="45"></td>
+                                               size="45" required style="color: #b21f2d"></td>
                                 </div>
                             </tr>
                             <td>&nbsp;</td>
@@ -276,14 +276,14 @@
                                 <td>
                                     <div class="col-12 col-lg-6">
                                         <textarea name="comments" cols="45" class="form-control" rows="8"
-                                                  id="comments"></textarea>
+                                                  id="comments" required style="color: #b21f2d"></textarea>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
                                 <td><input name="SubmitBtn" type="submit" id="SubmitBtn" value="Submit">
-                                    <button type="reset">Reset</button>
+                                    <input name="ResetBtn" type="reset" id="ResetBtn" value="Reset">
                                 </td>
                             </tr>
 
@@ -301,7 +301,7 @@
                 <!-- Single Contact Information -->
                 <div class="single-contact-information mb-30">
                     <h6>Phone:</h6>
-                    <p>+234 808 519 7693 <br></p>
+                    <p>+234 8021 716 121 <br></p>
                 </div>
                 <!-- Single Contact Information -->
                 <div class="single-contact-information mb-30">
@@ -362,6 +362,8 @@
                     </div>
                 </div>
             </div>
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 

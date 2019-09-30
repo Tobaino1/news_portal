@@ -7,7 +7,11 @@
  */
 ?>
 <?php
-$conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or die(mysqli_error());
+
+//$conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or die(mysqli_error());
+
+$con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +70,7 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -98,34 +102,33 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
     </div>
 </header>
 <h5 style="color: #b21f2d" align="center">download music / videos</h5>
-<div align="center">
+<div align="left">
 
     <?php
-    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    //    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    $con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
     if (mysqli_connect_errno()) {
         echo "unable to connect to db" . mysqli_connect_error();
     }
     ?>
-    <table style="color: red" width="50%" border="5">
-        <tr>
-            <th>FileName</th>
-            <th>Download</th>
-        </tr>
 
         <?php
-        $sql = "SELECT * FROM tblfiles";
+        $sql = "SELECT * FROM tblfiles order by id desc limit 15";
         $res = mysqli_query($con, $sql);
         while ($row = mysqli_fetch_array($res)) {
             echo '<tr>';
-            echo '<td>' . $row['FileName'] . '</td>';
-            echo '<td><a href="' . $row['Location'] . '">Download</a></td>';
+            echo '<td><img src="Uploaded_Files/' . $row['image'] . '" alt="artiste img" width="120" height="100"><br></td>';
+            echo '<td>' . $row['FileName'] . ' <br></td>';
+            echo '<td>' . $row['description'] . '<br></td>';
+            echo '<td><a href="' . $row['Location'] . '">Download file</a> <br><br></td>';
             echo '</tr>';
         }
         mysqli_close($con);
         ?>
 
-    </table>
 
+    <br><br>
 
 </div>
 <!--<div class="form-wrapper">-->
@@ -159,6 +162,9 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
 
 
             </div>
+
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 
@@ -195,4 +201,3 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
 </body>
 
 </html>
-

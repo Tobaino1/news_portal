@@ -6,20 +6,16 @@
  * Time: 6:22 PM
  */
 ?>
-<?php
-/**
- * Created by PhpStorm.
- * User: Oyekan Oluwatobi
- * Date: 9/6/2019
- * Time: 6:37 PM
- */
-?>
+
 <?php
 //Start session
 session_start();
 ?>
 <?php
-$conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or die(mysqli_error());
+//$conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or die(mysqli_error());
+
+$con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,7 +74,7 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
 
                     <!-- Logo -->
                     <div class="logo">
-                        <a href="index.php"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.php"><h4 style="color: white"> LAGOS REPORTERS 9ja </h4></a>
                     </div>
 
                     <!-- Navbar Toggler -->
@@ -113,7 +109,9 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
 <div align="center">
 
     <?php
-    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    //    $con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+    $con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+
     if (mysqli_connect_errno()) {
         echo "unable to connect to db" . mysqli_connect_error();
     }
@@ -154,18 +152,18 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
     </table>
 
     <!--echo code below to displaying data in parallel without table-->
-    <!--    <tr>-->
-    <!---->
-    <!--        <div align="justify">-->
-    <!---->
-    <!--            <td>  --><?php //echo $id ;?><!--</td>-->
-    <!--            <td> <img src="reporter_img/--><?php //echo $image?><!--" width="80" height="60"></td><br>-->
-    <!--            <td>&nbsp;Names:   --><?php //echo $names ;?><!-- </td>-->
-    <!--            <td>Username :      --><?php //echo $username;?><!-- </td>-->
-    <!--            <td>Email: --><?php //echo $email ;?><!-- </td>-->
-    <!--            <td>Phone No:   --><?php //echo $phone;?><!-- </td><br><Br>-->
-    <!--        </div>-->
-    <!--    </tr>-->
+    <!--        <tr>-->
+    <!--    -->
+    <!--            <div align="justify">-->
+    <!--    -->
+    <!--                <td>  --><?php //echo $id ;?><!--</td>-->
+    <!--                <td> <img src="reporter_img/--><?php //echo $image?><!--" width="80" height="60"></td><br>-->
+    <!--                <td>&nbsp;Names:   --><?php //echo $names ;?><!-- </td>-->
+    <!--                <td>Username :      --><?php //echo $username;?><!-- </td>-->
+    <!--                <td>Email: --><?php //echo $email ;?><!-- </td>-->
+    <!--                <td>Phone No:   --><?php //echo $phone;?><!-- </td><br><Br>-->
+    <!--            </div>-->
+    <!--        </tr>-->
 
 
 </div>
@@ -192,14 +190,17 @@ $conn = new PDO('mysql:host=localhost; dbname=lagos_reporter', 'root', '') or di
                         </div>
                         <!-- List -->
                         <ul class="list">
-                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>
-                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>
+                            <!--                            <li><a href="mailto:Lagosreporters9ja@gmail.com">Lagosreporters9ja@gmail.com</a></li>-->
+                            <!--                            <li><a href="http://Lagosreporters9ja.com">www.Lagosreporters9ja.com</a></li>-->
                         </ul>
                     </div>
                 </div>
 
 
             </div>
+
+            <p align="center"><a href="contact.php">Contact Us</a></p>
+
         </div>
     </div>
 
