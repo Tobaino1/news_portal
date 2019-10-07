@@ -7,11 +7,6 @@
  */
 ?>
 <?php
-if (!isset($_SESSION['id'])) {
-    echo 'Sorry please login before you can perform this operation';
-}
-?>
-<?php
 //Start session
 session_start();
 ?>

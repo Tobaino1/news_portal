@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$con = mysqli_connect("localhost","root","","lagos_reporter");
+//$con = mysqli_connect("localhost","root","","lagos_reporter");
 
-//$con = mysqli_connect("localhost","unlimit7_tobaino","pass?1><m","unlimit7_lagos_reporter");
+$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 
 // Check connection
@@ -214,8 +214,8 @@ if (mysqli_connect_errno())
                         </div>
                         <div id="breakingNewsTicker" class="ticker">
                             <ul>
-                                <li><a href="#">keeping you updated with the breaking news.</a></li>
-                                <li><a href="#">Avenue to get insight on relevant news.</a></li>
+                                <li><a href="#">updating you with the breaking news.</a></li>
+                                <li><a href="#">get insight on relevant news.</a></li>
                             </ul>
                         </div>
                     </div>
@@ -294,7 +294,8 @@ if (mysqli_connect_errno())
                                                     <br>
                                                 <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
                                                     <td><?php echo $content; ?> </td>
-                                                    <td><?php echo $submit; ?> </td>
+                                                    <!--                                                    <td>-->
+                                                    <?php //echo $submit; ?><!-- </td>-->
 
                                                     <br><br>
 
@@ -373,7 +374,7 @@ if (mysqli_connect_errno())
                                                     <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
                                                        <td><?php echo $content; ?> </td>
                                                        <br><br>
-                                                       <p><a href="#"> Click for more pictures...</a></p>
+                                                       <!--                                                       <p><a href="#"> Click for more pictures...</a></p>-->
 
                                                        <td>
                                                            <a href="https://api.whatsapp.com/send?text=www.google.com data-action="

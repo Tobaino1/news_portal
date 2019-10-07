@@ -12,7 +12,7 @@ session_start();
 
 <?php
 //$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
-$con = mysqli_connect("localhost", "unlimit7_tobaino", "pass?1><m", "unlimit7_lagos_reporter");
+$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 if (mysqli_connect_errno()) {
     echo "unable to connect to db" . mysqli_connect_error();
@@ -125,7 +125,7 @@ if ($num_row > 0) {
 
                                 <li><a href="register.php">Add Reporter</a></li>
                                 <li><a href="view_registered_rep.php">View Registered Reporters</a></li>
-                                <li><a href="#">reporters posts</a></li>
+                                <!--                                <li><a href="#">reporters posts</a></li>-->
                                 <li><a href="music_video_upload.php">Upload Music / Video</a></li>
 
                             </ul>
@@ -148,7 +148,8 @@ if ($num_row > 0) {
                 <div class="breaking-news-area d-flex align-items-center">
                     <div class="news-title">
                         <p>Administrator Page</p>
-                        <div align="center"><strong>You are welcome Administrator: </strong> <?php echo $username; ?>
+                        <div align="center"><strong>You are welcome Administrator:
+                            </strong> <?php echo $username; ?>
                         </div>
 
                     </div>
@@ -217,8 +218,8 @@ if ($num_row > 0) {
                                         <input type="file" name="image" id="image">
                                         <br><br>Content / Body <br>
 
-                                        <textarea name="content" cols="40" rows="15" align="justify"
-                                                  placeholder="copy and paste texts here / type texts here"
+                                        <textarea name="content" cols="30" rows="15" align="justify"
+                                                  placeholder="copy and paste texts here"
                                                   required></textarea>
 
                                         <!--                                        <br><br>-->
@@ -274,8 +275,8 @@ if ($num_row > 0) {
                                         <input type="file" name="image" id="image">
                                         <br><br>
                                         Content / Body
-                                        <textarea name="content" cols="40" rows="15" align="justify"
-                                                  placeholder="copy and paste texts here / type texts here" required></textarea>
+                                        <textarea name="content" cols="30" rows="15" align="justify"
+                                                  placeholder="copy and paste texts here" required></textarea>
                                         <!---->
                                         <!--                                        <br><br>-->
                                         <!--                                        Upload Other Images 1 (optional)-->
