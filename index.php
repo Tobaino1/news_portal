@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-//$con = mysqli_connect("localhost","root","","lagos_reporter");
+$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
 
-$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+//$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 
 // Check connection
@@ -237,18 +237,34 @@ if (mysqli_connect_errno())
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
-                        <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
-                        <a href="#"><img src="image_upload/keade.jpg" width="150" height="5" alt=""></a>
-                        <p>Patronize Us for all sort of wears (Unisex), visit us <a
-                                    href="facebook.com/keadecollections"> <strong style="color: blue">Keade
-                                    Collections</strong></a></p>
+                        <?php
+                        $query = $con->query("select * from mainadvert order by id desc limit 1");
+                        while ($row = mysqli_fetch_array($query)) {
 
+                            $image = $row['image'];
+                            $content = $row['content'];
+                            $link = $row['link'];
+
+                            ?>
+
+                            <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
+                            <a href="#"> <img src="img_mainadvert/<?php echo $image; ?>" width="130" height="50"
+                                              align="center"></a>
+                            <p><?php echo $content; ?>
+
+                                <!--                            <a href="facebook.com/keadecollections"> <strong style="color: blue">Keade-->
+                                <!--                                    Collections</strong></a>-->
+                            </p>
+
+                        <?php } ?>
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- ##### Hero Area End ##### -->
 
     <!-- ##### Featured Post Area Start ##### -->
@@ -277,7 +293,10 @@ if (mysqli_connect_errno())
                                             $reporter_name = $row['reporter_name'];
                                             $headline = $row['headline'];
                                             $content = $row['content'];
-                                        $submit = $row['submit']
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $submit = $row['submit'];
                                         //                                        $image=$row['image'];
 
                                         ?>
@@ -294,8 +313,21 @@ if (mysqli_connect_errno())
                                                     <br>
                                                 <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
                                                     <td><?php echo $content; ?> </td>
+                                                    <br> More pictures from the news/events
+                                                    <br>
+                                                    <td><img src="img/<?php echo $files; ?>" width="130"
+                                                             height="80"></td>
+
+                                                    <br>
+                                                    <td><img src="img2/<?php echo $image2; ?>" width="130"
+                                                             height="80"></td>
+
+                                                    <br>
+                                                    <td><img src="img3/<?php echo $image3; ?>" width="130"
+                                                             height="80"></td>
                                                     <!--                                                    <td>-->
-                                                    <?php //echo $submit; ?><!-- </td>-->
+                                                    <!--                                                    -->
+                                                    <?php //echo $files; ?><!-- </td>-->
 
                                                     <br><br>
 
@@ -364,7 +396,7 @@ if (mysqli_connect_errno())
                                                 <tr>
                                                     <!--                                                <td>  --><?php //echo $id ;?><!-- </td>-->
                                                    <div align="justify">
-                                                       <td><img src="image_upload/<?php echo $image ?>" width="230"
+                                                       <td><img src="image_upload/<?php echo $image; ?>" width="230"
                                                                 height="180"></td>
                                                        <br>
                                                        <td>Time:<?php echo $submit; ?> </td>
@@ -484,76 +516,35 @@ if (mysqli_connect_errno())
         <div class="col-12 col-md-6 col-lg-4">
                     <!-- Single Featured Post -->
             <a href="contact.php" class="post-catagory"><strong style="color: #b21f2d">Advertise With Us</strong> </a>
+            <?php
+            $query = $con->query("select * from advert order by id desc limit 10");
+            while ($row = mysqli_fetch_array($query)) {
+
+            $image = $row['image'];
+            $content = $row['content'];
+            $link = $row['link'];
+
+            ?>
+
+
+
 
             <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <!--                            <a href="#"><img src="img/bg-img/19.jpg" alt=""></a>-->
-                        </div>
-                        <div class="post-data">
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <!--                                    <h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
-                                </a>
-                                <!--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Featured Post -->
-            <!--                    advert column 1-->
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <!--                            <a href="#"><img src="img/bg-img/20.jpg" alt=""></a>-->
-                        </div>
-
-                        <!--                    advert column 2-->
-
-                        <div class="post-data">
-                            <!--<a href="#" class="post-catagory">Politics</a>-->
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <!--                                    <h6>Sed a elit euismod augue semper congue sit amet ac sapien.</h6>-->
-                                </a>
-                                <!--                                <p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Single Featured Post -->
-            <!--                    advert column 3-->
-
-                    <div class="single-blog-post small-featured-post d-flex">
-                        <div class="post-thumb">
-                            <!--<a href="#"><img src="img/bg-img/21.jpg" alt=""></a>-->
-                        </div>
-
-                        <!--                    advert column 4-->
-                        <div class="post-data">
-                            <!--<a href="#" class="post-catagory">Health</a>-->
-                            <div class="post-meta">
-                                <a href="#" class="post-title">
-                                    <!--<h6>Pellentesque mattis arcu massa, nec fringilla turpis eleifend id.</h6>-->
-                                </a>
-                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Single Featured Post -->
             <!--                    advert column 5-->
             <div class="single-blog-post small-featured-post d-0 flex">
                         <div class="post-thumb">
-                            <!--<a href="#"><img src="img/bg-img/22.jpg" alt=""></a>-->
+                            <img src="img_advert/<?php echo $image; ?>" width="80" height="40"></a>
                         </div>
-
-                <!--                    advert column 6-->
-                        <div class="post-data">
-                            <!--<a href="#" class="post-catagory">Finance</a>-->
+                <div class="post-data">
+                    <!--                            <a href="#" class="post-catagory">Finance</a>-->
                             <div class="post-meta">
                                 <a href="#" class="post-title">
-                                    <!--<h6>Augue semper congue sit amet ac sapien. Fusce consequat.</h6>-->
+                                    <h6><?php echo $content; ?></h6>
                                 </a>
-                                <!--<p class="post-date"><span>7:00 AM</span> | <span>April 14</span></p>-->
+                                <p class="post-date"><span><?php echo $link; ?></span></p>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>

@@ -11,8 +11,8 @@ session_start();
 ?>
 
 <?php
-//$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
-$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+//$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 if (mysqli_connect_errno()) {
     echo "unable to connect to db" . mysqli_connect_error();
@@ -204,6 +204,8 @@ if ($num_row > 0) {
                                 <a href="#" class="post-title">
                                     <!--<h6>Financial news: A new company is born today at the stock market</h6>-->
                                 </a>
+
+
                                 <div class="post-meta">
                                         <h6 style="color: blue">Use the form to lodge latest news</h6>
                                     <form enctype="multipart/form-data" action="constring.php" name="form" method="post">
@@ -214,13 +216,25 @@ if ($num_row > 0) {
                                         Headline / Tile of the news
                                         <input type="text" name="headline" id="headline" size="70" required>
                                         <br><br>
-                                        Upload Images (optional)
+                                        Upload Images (Title/story cover)
                                         <input type="file" name="image" id="image">
+
                                         <br><br>Content / Body <br>
 
                                         <textarea name="content" cols="30" rows="15" align="justify"
                                                   placeholder="copy and paste texts here"
                                                   required></textarea>
+                                        <br><br>
+                                        Upload more Images <Br>
+                                        <input type="file" name="files">
+
+                                        <br><br>
+                                        Upload more Images2 <Br>
+                                        <input type="file" name="image2">
+
+                                        <br><br>
+                                        Upload more Images3 <Br>
+                                        <input type="file" name="image3">
 
                                         <!--                                        <br><br>-->
                                         <!--                                        Upload Other Images 1 (optional)-->
@@ -261,7 +275,7 @@ if ($num_row > 0) {
 <!--                                    <a href="#" class="post-title">-->
 
                                     </a>
-                                    <h6 style="color: blue">Use the form to lodge intl news</h6>
+                                    <h6 style="color: blue">Use the form to lodge community news</h6>
 
                                     <form enctype="multipart/form-data" action="constring_int.php" name="form" method="post">
 
@@ -277,16 +291,6 @@ if ($num_row > 0) {
                                         Content / Body
                                         <textarea name="content" cols="30" rows="15" align="justify"
                                                   placeholder="copy and paste texts here" required></textarea>
-                                        <!---->
-                                        <!--                                        <br><br>-->
-                                        <!--                                        Upload Other Images 1 (optional)-->
-                                        <!--                                        <input type="file" name="image1" id="image1">-->
-                                        <!---->
-                                        <!---->
-                                        <!--                                        <br><br>-->
-                                        <!---->
-                                        <!--                                        Upload Other Images 2 (optional)-->
-                                        <!--                                        <input type="file" name="image2" id="image2">-->
 
                                         <br> <br>
 
@@ -296,8 +300,55 @@ if ($num_row > 0) {
 
                                         <br>
                                     </form>
+                                    <br><Br>
+                                    <h6 style="color: blue">Use the form for other advertisement placements</h6>
 
+                                    <form enctype="multipart/form-data" action="advert.php" name="form" method="post">
+
+                                        Upload Image (picture of the company/brand)
+                                        <input type="file" name="image" id="image">
+                                        <br><br>
+
+                                        content (text about the brand/company)
+                                        <input type="text" name="content" id="content" size="70" required
+                                               placeholder="copy and paste">
+                                        <br><br>
+
+                                        <!--                                       website/link to the brand's / company's page (optional)-->
+                                        <!--                                        <input type="text" name="link" id="link" size="40">-->
+                                        <!--<br><br>-->
+                                        <input type="reset" name="reset" id="submit" value="reset"/>
+
+                                        <input type="submit" name="submit" id="submit" value="Submit"/>
+
+                                        <br>
+                                    </form>
                                     <br><br>
+                                    <br><br>
+
+                                    <h6 style="color: red">Use the form for Main advertisement after logo</h6>
+
+                                    <form enctype="multipart/form-data" action="mainadvert.php" name="form"
+                                          method="post">
+
+                                        Upload Image (picture of the company/brand)
+                                        <input type="file" name="image" id="image">
+                                        <br><br>
+
+                                        content (text about the brand/company)
+                                        <input type="text" name="content" id="content" size="50" required
+                                               placeholder="copy and paste">
+                                        <br><br>
+
+                                        <!--                                        website/link to the brand's / company's page (optional)-->
+                                        <!--                                        <input type="text" name="link" id="link" size="40">-->
+                                        <!--                                        <br><br>-->
+                                        <input type="reset" name="reset" id="submit" value="reset"/>
+
+                                        <input type="submit" name="submit" id="submit" value="Submit"/>
+
+                                        <br>
+                                    </form>
                                     <!--                                                <h4 ALIGN="CENTER"> upload  (music & video) </h4>-->
 
                                     <!--                                                <form enctype="multipart/form-data" action="upload_download/upload.php" name="form" method="post">-->
