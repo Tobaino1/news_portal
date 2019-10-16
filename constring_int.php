@@ -17,23 +17,58 @@ $temp=$_FILES['image']['tmp_name'];
 
 $content=$_POST['content'];
 
+
+//img1
+$uploads_directory = 'img1b/';
+$files = $_FILES['files']['name'];
+$tp = $_FILES['files']['tmp_name'];
+
+//img2
+$uploads_direct = 'img2b/';
+$image2 = $_FILES['image2']['name'];
+$pt = $_FILES['image2']['tmp_name'];
+
+//img3
+$uploads_directing = 'img3b/';
+$image3 = $_FILES['image3']['name'];
+$yk = $_FILES['image3']['tmp_name'];
+
+//img4
+$uploads_div = 'img4b/';
+$image4 = $_FILES['image4']['name'];
+$bv = $_FILES['image4']['tmp_name'];
+
+
+//img5
+$uploads_ding = 'img5b/';
+$image5 = $_FILES['image5']['name'];
+$hd = $_FILES['image5']['tmp_name'];
+
+
 move_uploaded_file($temp,$uploads_dir.basename($image));
 
+move_uploaded_file($tp, $uploads_directory . basename($files));
+
+move_uploaded_file($pt, $uploads_direct . basename($image2));
+
+move_uploaded_file($yk, $uploads_directing . basename($image3));
+
+move_uploaded_file($bv, $uploads_div . basename($image4));
+
+move_uploaded_file($hd, $uploads_ding . basename($image5));
 
 
 // Create connection
 //$conn = mysqli_connect("localhost", "root", "", "lagos_reporter");
-$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+$conn = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 // Check connection
 if ($conn === false) {
     die ("Error: could not connect." . mysqli_connect_error());
 }
 
-
-
-$sql = "INSERT INTO int_news(reporter_name, headline, image, content) VALUES 
-('$reporter_name', '$headline','$image','$content')";
+$sql = "INSERT INTO int_news (reporter_name, headline, image, content, files, image2, image3, image4, image5) VALUES 
+('$reporter_name', '$headline','$image','$content', '$files', '$image2', '$image3', '$image4', '$image5')";
 
 
 if (mysqli_query($conn, $sql)) {

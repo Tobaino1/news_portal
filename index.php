@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+//$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
 
-//$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 
 // Check connection
@@ -237,17 +237,18 @@ if (mysqli_connect_errno())
                 <!-- Hero Add -->
                 <div class="col-12 col-lg-4">
                     <div class="hero-add">
+                        <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
+
                         <?php
                         $query = $con->query("select * from mainadvert order by id desc limit 1");
                         while ($row = mysqli_fetch_array($query)) {
 
                             $image = $row['image'];
                             $content = $row['content'];
-                            $link = $row['link'];
+//                            $link = $row['link'];
 
                             ?>
 
-                            <a href="#"><img src="img/core-img/official%20logo.jpg" width="430" height="216" alt=""></a>
                             <a href="#"> <img src="img_mainadvert/<?php echo $image; ?>" width="130" height="50"
                                               align="center"></a>
                             <p><?php echo $content; ?>
@@ -283,12 +284,12 @@ if (mysqli_connect_errno())
                                 <div class="post-data">
                                     <a href="#" class="post-catagory">Latest News</a>
                                     <a href="#" class="post-title">
-                                        <!--<h6>Financial news: A new company is born today at the stock market</h6>-->
                                         <?php
-                                        $query = $con->query("select * from local_news order by id desc limit 10");
+                                        //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                        $query = $con->query("select * from local_news where id =1");
                                         while ($row = mysqli_fetch_array($query)) {
 
-//                                            $id = $row['id'];
                                             $image=$row['image'];
                                             $reporter_name = $row['reporter_name'];
                                             $headline = $row['headline'];
@@ -296,47 +297,27 @@ if (mysqli_connect_errno())
                                         $files = $row['files'];
                                         $image2 = $row['image2'];
                                         $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
                                         $submit = $row['submit'];
-                                        //                                        $image=$row['image'];
 
                                         ?>
                                             <tr>
                                                 <div align="justify">
 
                                                 <!--                                                <td>  --><?php //echo $id ;?><!-- </td>-->
-                                                    <td><img src="image_upload/<?php echo $image ?>" width="230"
-                                                             height="180"></td>
-                                                    <br>
-                                                    <td>Time:<?php echo $submit; ?> </td>
-                                                    <br>
-                                                    <td>&nbsp;Report by: <?php echo $reporter_name; ?> </td>
-                                                    <br>
-                                                <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
-                                                    <td><?php echo $content; ?> </td>
-                                                    <br> More pictures from the news/events
-                                                    <br>
-                                                    <td><img src="img/<?php echo $files; ?>" width="130"
-                                                             height="80"></td>
+                                                    <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                             height="120"></td>
 
                                                     <br>
-                                                    <td><img src="img2/<?php echo $image2; ?>" width="130"
-                                                             height="80"></td>
-
+                                                    <td><strong style="color: black"><?php echo $headline; ?></strong>
+                                                    </td>
                                                     <br>
-                                                    <td><img src="img3/<?php echo $image3; ?>" width="130"
-                                                             height="80"></td>
-                                                    <!--                                                    <td>-->
-                                                    <!--                                                    -->
-                                                    <?php //echo $files; ?><!-- </td>-->
 
+                                                    <td>Published on:<?php echo $submit; ?></td>
+                                                    <a href="more1local.php"> Read news...</a>
                                                     <br><br>
-
-                                                    <!--                                                    <p><a href="images1/-->
-                                                    <?php //echo $image?><!--"> Click for more pictures...</a> </p>-->
-                                                    <!--                                                    <p><a href="#"> Click for more pictures...</a> </p>-->
-
-
-                                                    <!--                                                                                                 //sharing on social media platforms-->
+                                                    <!--                                                                                                                                      //sharing on social media platforms-->
                                                     <td>
                                                         <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
                                                            share/whatsapp/share">
@@ -360,9 +341,564 @@ if (mysqli_connect_errno())
                                     <br><Br>
                                 </div>
                                 </tr>
-                                        <?php }?>
+                                <?php } ?>
 
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
 
+                                $query = $con->query("select * from local_news where id =2");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more2local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =3");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more3local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =4");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more4local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =5");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more5local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =6");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more6local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =7");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more7local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =8");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more8local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br><Br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =9");
+                                while ($row = mysqli_fetch_array($query)) {
+
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more9local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+                                            <br>
+                                        </div>
+                                    </tr>
+                                <?php } ?>
+
+                                <br>
+                                <?php
+                                //                                        $query = $con->query("select * from local_news order by id desc limit 10");
+
+                                $query = $con->query("select * from local_news where id =10");
+                                while ($row = mysqli_fetch_array($query)) {
+                                    $image = $row['image'];
+                                    $reporter_name = $row['reporter_name'];
+                                    $headline = $row['headline'];
+                                    $content = $row['content'];
+                                    $files = $row['files'];
+                                    $image2 = $row['image2'];
+                                    $image3 = $row['image3'];
+                                    $image4 = $row['image4'];
+                                    $image5 = $row['image5'];
+                                    $submit = $row['submit'];
+
+                                    ?>
+                                    <tr>
+                                        <div align="justify">
+
+                                            <td><img src="image_upload/<?php echo $image ?>" width="170"
+                                                     height="120"></td>
+
+                                            <br>
+                                            <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                            <br>
+
+                                            <td>Published on:<?php echo $submit; ?></td>
+                                            <br>
+                                            <a href="more10local.php"> Read news...</a>
+                                            <br><br>
+                                            <!--                                                                                                                                      //sharing on social media platforms-->
+                                            <td>
+                                                <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                   share/whatsapp/share">
+                                                <span><i class="fa fa-whatsapp" style="color: green"></i></span>
+                                                Share via Whatsapp web
+                                                </a></td>
+                                            <br>
+
+                                            <td>
+                                                <a class="twitter-share-button" href="https://twitter.com/intent/tweet">
+                                                    <span><i class="fa fa-twitter" style="color: blue"></i></span> Share
+                                                    via
+                                                    Twitter</a>
+                                            </td>
+                                            <br>
+
+                                            <td>
+
+                                                <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                    <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                    Share via
+                                                    Facebook</a>
+                                                </a>        </td>
+
+                                        </div>
+                                    </tr>
+                                <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -373,13 +909,15 @@ if (mysqli_connect_errno())
                                 <!--<div class="post-thumb">-->
                                     <!--<a href="#"><img src="img/bg-img/17.jpg" alt=""></a>-->
                                 <!--</div>-->
-                                <p></p>
+
                                 <div class="post-data">
                                     <a href="#" class="post-catagory">LR COMMUNITY WATCH</a>
                                     <div class="post-meta">
                                         <a href="#" class="post-title">
                                             <?php
-                                            $query = $con->query("select * from int_news order by id desc limit 10");
+                                            //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                            $query = $con->query("select * from int_news where id =1");
                                             while ($row = mysqli_fetch_array($query)) {
 
 //                                            $id = $row['id'];
@@ -387,10 +925,12 @@ if (mysqli_connect_errno())
                                                 $reporter_name = $row['reporter_name'];
                                                 $headline = $row['headline'];
                                                 $content = $row['content'];
-                                            $submit = $row['submit']
-
-                                            //                                            $image1=$row['image1'];
-                                            //                                            $image2=$row['image2'];
+                                            $files = $row['files'];
+                                            $image2 = $row['image2'];
+                                            $image3 = $row['image3'];
+                                            $image4 = $row['image4'];
+                                            $image5 = $row['image5'];
+                                            $submit = $row['submit'];
 
                                                 ?>
                                                 <tr>
@@ -399,15 +939,16 @@ if (mysqli_connect_errno())
                                                        <td><img src="image_upload/<?php echo $image; ?>" width="230"
                                                                 height="180"></td>
                                                        <br>
-                                                       <td>Time:<?php echo $submit; ?> </td>
+                                                       <td>
+                                                           <strong style="color: black"><?php echo $headline; ?></strong>
+                                                       </td>
                                                        <br>
-                                                       <td>&nbsp;Report by: <?php echo $reporter_name; ?> </td>
-                                                       <br>
-                                                    <td>&nbsp;Headline / Title:       <?php echo $headline ;?> </td><br>
-                                                       <td><?php echo $content; ?> </td>
-                                                       <br><br>
-                                                       <!--                                                       <p><a href="#"> Click for more pictures...</a></p>-->
 
+                                                       <td>Published on:<?php echo $submit; ?> </td>
+                                                       <br>
+
+                                                       <a href="more1lr.php">Read news ...</a>
+                                                       <br><br>
                                                        <td>
                                                            <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
                                                               share/whatsapp/share">
@@ -431,12 +972,596 @@ if (mysqli_connect_errno())
                                             </a>        </td>
                                         <br><Br>
                                     </div>
-                                                </tr>
+                                    </tr>
                                     <?php } ?>
-                                    <!-- see Comments -->
-                                    <br>
+
+                                    <br><br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =2");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more2lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+                                    <br><br>
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =3");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more3lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+                                    <br><br>
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =4");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more4lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+                                    <br><br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =5");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more5lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+                                    <br><br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =6");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more6lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+                                    <br><Br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =7");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more7lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+
+                                    <br<br>
 
 
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =8");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more8lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+
+                                    <br><br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =9");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more9lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
+
+                                    <br><br>
+
+                                    <?php
+                                    //                                            $query = $con->query("select * from int_news order by id desc limit 10");
+
+                                    $query = $con->query("select * from int_news where id =10");
+                                    while ($row = mysqli_fetch_array($query)) {
+
+//                                            $id = $row['id'];
+                                        $image = $row['image'];
+                                        $reporter_name = $row['reporter_name'];
+                                        $headline = $row['headline'];
+                                        $content = $row['content'];
+                                        $files = $row['files'];
+                                        $image2 = $row['image2'];
+                                        $image3 = $row['image3'];
+                                        $image4 = $row['image4'];
+                                        $image5 = $row['image5'];
+                                        $submit = $row['submit'];
+
+                                        ?>
+                                        <tr>
+                                            <!--                                                <td>  -->
+                                            <?php //echo $id ;?><!-- </td>-->
+                                            <div align="justify">
+                                                <td><img src="image_upload/<?php echo $image; ?>" width="230"
+                                                         height="180"></td>
+                                                <br>
+                                                <td><strong style="color: black"><?php echo $headline; ?></strong></td>
+                                                <br>
+
+                                                <td>Published on:<?php echo $submit; ?> </td>
+                                                <br>
+
+                                                <a href="more10lr.php">Read news ...</a>
+                                                <br><br>
+                                                <td>
+                                                    <a href="https://api.whatsapp.com/send?text=www.google.com data-action="
+                                                       share/whatsapp/share">
+                                                    <span><i class="fa fa-whatsapp"
+                                                             style="color: green"></i></span> Share via Whatsapp
+                                                    web
+                                                    </a></td>
+                                                <br>
+
+                                                <td>
+                                                    <a class="twitter-share-button"
+                                                       href="https://twitter.com/intent/tweet">
+                                                        <span><i class="fa fa-twitter" style="color: blue"></i></span>
+                                                        Share via
+                                                        Twitter</a>
+                                                </td>
+                                                <br>
+
+                                                <td>
+
+                                                    <a href="https://www.facebook.com/sharer.php?u=http%3A%2F%2Fcss-tricks.com%2F">
+                                                        <span><i class="fa fa-facebook" style="color: blue"></i></span>
+                                                        Share
+                                                        via Facebook</a>
+                                                    </a>        </td>
+                                                <br><Br>
+                                            </div>
+                                        </tr>
+                                    <?php } ?>
                                     <div class="post-meta">
                                         <!-- Post Like & Post Comment -->
                                         <h6 style="color: blue"><strong>DISCLAIMER: Comments expressed here do not
@@ -522,7 +1647,7 @@ if (mysqli_connect_errno())
 
             $image = $row['image'];
             $content = $row['content'];
-            $link = $row['link'];
+            //            $link = $row['link'];
 
             ?>
 
@@ -543,7 +1668,8 @@ if (mysqli_connect_errno())
                                 <a href="#" class="post-title">
                                     <h6><?php echo $content; ?></h6>
                                 </a>
-                                <p class="post-date"><span><?php echo $link; ?></span></p>
+                                <!--                                <p class="post-date"><span>-->
+                                <?php //echo $link; ?><!--</span></p>-->
                                 <?php } ?>
                             </div>
                         </div>

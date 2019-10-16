@@ -125,6 +125,8 @@ if ($num_row > 0) {
 
                                 <li><a href="register.php">Add Reporter</a></li>
                                 <li><a href="view_registered_rep.php">View Registered Reporters</a></li>
+                                <li><a href="delete_news.php">Delete News</a></li>
+
                                 <!--                                <li><a href="#">reporters posts</a></li>-->
                                 <li><a href="music_video_upload.php">Upload Music / Video</a></li>
 
@@ -236,15 +238,15 @@ if ($num_row > 0) {
                                         Upload more Images3 <Br>
                                         <input type="file" name="image3">
 
-                                        <!--                                        <br><br>-->
-                                        <!--                                        Upload Other Images 1 (optional)-->
-                                        <!--                                        <input type="file" name="image1" id="image1">-->
+                                        <br><br>
+                                        Upload Other Images 4
+                                        <input type="file" name="image4" id="image4">
 
-                                        <!---->
-                                        <!--                                        <br><br>-->
-                                        <!---->
-                                        <!--                                        Upload Other Images 2 (optional)-->
-                                        <!--                                        <input type="file" name="image2" id="image2">-->
+
+                                        <br><br>
+
+                                        Upload Other Images 5
+                                        <input type="file" name="image5" id="image5">
 
                                         <br> <br>
 
@@ -291,6 +293,27 @@ if ($num_row > 0) {
                                         Content / Body
                                         <textarea name="content" cols="30" rows="15" align="justify"
                                                   placeholder="copy and paste texts here" required></textarea>
+
+                                        <br><br>
+                                        Upload more Images <Br>
+                                        <input type="file" name="files">
+
+                                        <br><br>
+                                        Upload more Images2 <Br>
+                                        <input type="file" name="image2">
+
+                                        <br><br>
+                                        Upload more Images3 <Br>
+                                        <input type="file" name="image3">
+
+                                        <br><br>
+                                        Upload Other Images 4
+                                        <input type="file" name="image4" id="image4">
+
+                                        <br><br>
+
+                                        Upload Other Images 5
+                                        <input type="file" name="image5" id="image5">
 
                                         <br> <br>
 
