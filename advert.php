@@ -20,8 +20,8 @@ move_uploaded_file($temp, $uploads_dir . basename($image));
 
 
 // Create connection
-//$conn = mysqli_connect("localhost", "root", "", "lagos_reporter");
-$conn = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+$conn = mysqli_connect("localhost", "root", "", "lagos_reporter");
+//$conn = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 // Check connection
 if ($conn === false) {

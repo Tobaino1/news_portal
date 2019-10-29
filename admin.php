@@ -11,8 +11,8 @@ session_start();
 ?>
 
 <?php
-$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
-//$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
+//$con = mysqli_connect("localhost", "root", "", "lagos_reporter");
+$con = mysqli_connect("localhost", "lagosrep_tobaino", "pass?1><m", "lagosrep_lagos_reporter");
 
 if (mysqli_connect_errno()) {
     echo "unable to connect to db" . mysqli_connect_error();
@@ -126,8 +126,7 @@ if ($num_row > 0) {
                                 <li><a href="register.php">Add Reporter</a></li>
                                 <li><a href="view_registered_rep.php">View Registered Reporters</a></li>
                                 <li><a href="delete_news.php">Delete News</a></li>
-
-                                <!--                                <li><a href="#">reporters posts</a></li>-->
+                                <li><a href="delete_advert.php">Delete Adverts</a></li>
                                 <li><a href="music_video_upload.php">Upload Music / Video</a></li>
 
                             </ul>

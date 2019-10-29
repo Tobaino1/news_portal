@@ -22,8 +22,8 @@ session_start();
 <link rel="icon" href="img/core-img/lagos%20reporter.PNG">
 
 <h1>Thanks</h1>
-<p>Record has been successfully uploaded.</p>
-<p><a href="admin.php">Back to Admin Home Page</a>.</p>
+<p>Record has been successfully executed</p>
+<p><a href="admin.php">Back to Admin Home Page</a></p>
 <p><a href="logout.php">Logout</a></p>
 
 
